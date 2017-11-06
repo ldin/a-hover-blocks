@@ -1,0 +1,4 @@
+.block{width: 90%; margin: 10px auto; padding: 10px; border: 1px solid #666;}
+.del{float: right; padding: 0 5px; border: 1px solid #cc0000; color: #cc0000; cursor: pointer;}
+.del:hover{background: rgba(204, 0, 0, 0.2);}
+.active{background: rgba(0, 91, 204, 0.2);}
