@@ -1,4 +1,4 @@
 <div class="block" [ngClass]="{'active': isToggle}" (click)="toggle()">
   {{item.content}}
-  <i (click)="delete($event)" class="del">x</i>
+  <i (click)="delete(item)" class="del">x</i>
 </div>

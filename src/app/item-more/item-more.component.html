@@ -1,0 +1,4 @@
+<div class="block" [ngClass]="{'active': isToggle}" (click)="toggle()" appDblClick>
+  {{item.content}}
+  <i (click)="delete2(item)" class="del">x</i>
+</div>

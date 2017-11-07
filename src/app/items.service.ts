@@ -6,29 +6,57 @@ export class ItemsService {
 
   constructor() { }
 
-  items: Item[] = [
+  items = [
     {
       content: 'title',
       isActive: true,
       isExist: true,
-      color:''
+      // color:''
     },
     {
       content: 'content ',
       isActive: true,
       isExist: true,
-      color:''
+      // color:''
     },
     {
-      content: 'title content ',
+      content: 'title content 3',
       isActive: true,
-      isExist: true,
-      color:''
+      isExist: false,
+      // color:''
     }
   ];
 
-  getItems(){
+  getItems() {
     return this.items;
+  }
+
+  deleteItem(item) {
+    const index = this.items.indexOf(item);
+    if(index > -1) {
+      this.items.splice(index, 1);
+    }
+  }
+
+  addItem(item) {
+    if(!item) return;
+    const res: Item = {
+      content: item,
+      isExist: Math.random() >= 0.5,
+      isActive: false
+    };
+    this.items.push(res);
+    this.getCount();
+
+  }
+
+  getCount() {
+    console.log(this.items)
+    return this.items.length;
+  }
+
+  getItemMore() {
+    return this.items.map(item => item.isExist === true).length;
   }
 
 }

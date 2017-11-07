@@ -7,15 +7,19 @@ import {Item} from "./item";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
 
-  constructor(private service:ItemsService){}
+  public count;
+  public countItemMore;
+
+  constructor(private service: ItemsService) {}
 
   title = 'app';
-  items:Item[];
+  items: Item[];
 
-  ngOnInit(){
+  ngOnInit() {
     this.items = this.service.getItems();
+    this.count = this.service.getCount();
   }
 
 }

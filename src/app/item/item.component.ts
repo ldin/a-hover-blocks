@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {Item} from "../item";
+import {ItemsService} from "../items.service";
 
 @Component({
   selector: 'app-item',
@@ -8,7 +9,7 @@ import {Item} from "../item";
 })
 export class ItemComponent implements OnInit {
 
-  constructor() { }
+  constructor( private servise: ItemsService) { }
 
   @Input() item: Item;
   isToggle = false;
@@ -16,8 +17,9 @@ export class ItemComponent implements OnInit {
   ngOnInit() {
   }
 
-  public delete(e){
-    console.log(e)
+  public delete(item) {
+    this.servise.deleteItem(item);
+
   }
 
   public toggle(){
@@ -25,3 +27,4 @@ export class ItemComponent implements OnInit {
   }
 
 }
+

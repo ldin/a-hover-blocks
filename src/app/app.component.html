@@ -4,11 +4,19 @@
     Welcome to {{title}}!
   </h1>
 </div>
-<h2>Here are some links to help you start: </h2>
 
 <div>
+  <div>
+    <app-form></app-form>
+  </div>
+  <hr>
   <div *ngFor="let item of items">
-    <app-item [item]="item"></app-item>
+    <app-item [item]="item" *ngIf="item.isExist"></app-item>
+    <app-item-more  [item]="item" *ngIf="!item.isExist"></app-item-more>
+  </div>
+  <hr>
+  <div>
+    <p *ngIf="count">Всего: {{count}}</p>
   </div>
 </div>
 

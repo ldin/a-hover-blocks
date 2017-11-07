@@ -1,0 +1,4 @@
+.form{margin: auto; text-align: center }
+.form-control{padding: 5px;}
+.btn{border: 1px solid #666;}
+.btn:hover{background: rgba(0,0,0,0.1); cursor: pointer;}
