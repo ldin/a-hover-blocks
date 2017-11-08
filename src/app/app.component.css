@@ -1,0 +1,5 @@
+.wrapper{width: 90%; margin: auto;}
+.col-xs-6{display: inline-block; width: 30%;}
+.statistics{font-size: 14px; line-height: 1em;}
+.statistics p{margin: 5px;}
+.statistics span{font-size: 16px; font-weight: bold}

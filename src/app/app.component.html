@@ -1,23 +1,33 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
   <h1>
-    Welcome to {{title}}!
+    Welcome!
   </h1>
 </div>
 
-<div>
+
+<div class="wrapper">
+  <div class="statistics">
+    <div class="col-xs-6">
+      <p>Всего: <span>{{items.length}}</span></p>
+      <p>Выделенных: <span>{{checkedCount}}</span></p>
+    </div>
+    <div class="col-xs-6">
+      <p>Красных: <span>{{checkedRed}}</span></p>
+      <p>Зеленых: <span>{{checkedGreen}}</span></p>
+    </div>
+  </div>
+
+  <hr>
   <div>
     <app-form></app-form>
   </div>
   <hr>
   <div *ngFor="let item of items">
-    <app-item [item]="item" *ngIf="item.isExist"></app-item>
-    <app-item-more  [item]="item" *ngIf="!item.isExist"></app-item-more>
+    <app-item [item]="item" (checked)=onChecked($event) *ngIf="item.isExist"></app-item>
+    <app-item-more  [item]="item" (checked)=onChecked($event) (isRed)="onRed($event)" *ngIf="!item.isExist"></app-item-more>
   </div>
-  <hr>
-  <div>
-    <p *ngIf="count">Всего: {{count}}</p>
-  </div>
+
 </div>
 
 

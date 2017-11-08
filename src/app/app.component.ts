@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ItemsService} from "./items.service";
 import {Item} from "./item";
 
@@ -9,17 +9,32 @@ import {Item} from "./item";
 })
 export class AppComponent implements OnInit {
 
-  public count;
-  public countItemMore;
 
   constructor(private service: ItemsService) {}
 
-  title = 'app';
-  items: Item[];
+  @Input() checked: number;
+  @Input() isRed: number;
+
+  public items: Item[];
+  public checkedCount = 0;
+  public checkedRed = 0;
+  public checkedGreen = 0;
+  public count;
 
   ngOnInit() {
     this.items = this.service.getItems();
-    this.count = this.service.getCount();
+    this.checkedGreen = this.service.getItemMore();
   }
+
+  onChecked(e) {
+    this.checkedCount += e;
+  }
+
+  onRed(e) {
+    this.checkedRed += e;
+    this.checkedGreen -= e;
+  }
+
+
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {Item} from "../item";
 import {ItemsService} from "../items.service";
 
@@ -12,7 +12,8 @@ export class ItemComponent implements OnInit {
   constructor( private servise: ItemsService) { }
 
   @Input() item: Item;
-  isToggle = false;
+  @Output() checked: EventEmitter<any> = new EventEmitter();
+  public isToggle = false;
 
   ngOnInit() {
   }
@@ -22,8 +23,13 @@ export class ItemComponent implements OnInit {
 
   }
 
-  public toggle(){
+  public toggle() {
     this.isToggle = !this.isToggle;
+    if (this.isToggle) {
+      this.checked.emit(1);
+    } else {
+      this.checked.emit(-1);
+    }
   }
 
 }
